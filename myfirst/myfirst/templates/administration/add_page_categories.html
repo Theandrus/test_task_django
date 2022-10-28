@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Add category{% endblock %}
+
+{% block content %}
+
+<h2>Add a new category</h2>
+<form action="{% url 'adm:categories_add' %}" method="post">
+    {% csrf_token %}
+    <div class="area">
+        <textarea name="Name" required="" placeholder="Category's name" cols="15" rows="1"></textarea>
+        <textarea name="Slug" required="" placeholder="Slug" cols="10" rows="1"></textarea>
+        <textarea name="Number_of_sort" required="" placeholder="Number of sort" cols="1" rows="1"></textarea>
+    </div>
+        <button type="submit" class="add_post">Add category</button>
+</form>
+
+{% endblock %}

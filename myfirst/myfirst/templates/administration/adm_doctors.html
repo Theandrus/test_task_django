@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Doctors {% endblock %}
+
+{% block content %}
+
+  {% if doctors %}
+
+        {% for doctor in doctors %}
+        <ul>
+            <li>
+                <a href="#">{{doctor.doctor_name}}</a>
+                <a href = "{% url 'adm:delete_doctors' doctor.slug  %}" class = "delete"  methods="POST"><input type=button name="delete" value='Delete'></a>
+                <a href = "#" class = "change"  methods="GET"><input type=button name="change" value='Change'></a>
+            </li>
+        </ul>
+        {% endfor %}
+
+    {% else %}
+
+        <a>The doctors were not find(</a>
+
+    {% endif %}
+
+<a href="{% url 'adm:add_doctors' %}">
+    <button type="submit" class="add_button" >ADD</button>
+</a>
+
+{% endblock %}

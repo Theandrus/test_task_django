@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} Doctors {% endblock %}
+
+{% block content %}
+
+    <form method="get" class="search-label-icon">
+
+        <input name="search"  class="flex-box">
+
+        <button type="submit">Search</button>
+    </form>
+
+    {% if doctors %}
+
+        {% for doctor in doctors %}
+        <ul>
+            <li>
+                <a href="{% url 'doctors:doctor_detail' doctor.slug %}">{{doctor.doctor_name}}</a>
+            </li>
+        </ul>
+        {% endfor %}
+
+    {% else %}
+
+        <a>The doctors were not find(</a>
+
+    {% endif %}
+
+
+        {% if doctors.has_other_pages %}
+
+            <div class="pagination">
+
+            {% if doctors.has_previous %}
+
+                <a href="?page={{ doctors.previous_page_number }}">&laquo;</a>
+
+            {% else %}
+                <span>&laquo;</span>
+
+            {% endif %}
+
+                {% for i in doctors.paginator.page_range %}
+
+          {% if doctors.number == i %}
+
+            <span>{{ i }} <span class="sr-only">(current)</span></span>
+
+          {% else %}
+
+            <a href="?page={{ i }}">{{ i }}</a>
+
+          {% endif %}
+
+        {% endfor %}
+
+        {% if doctors.has_next %}
+
+          <a href="?page={{ doctors.next_page_number }}">&raquo;</a>
+
+        {% else %}
+
+          <span>&raquo;</span>
+
+        {% endif %}
+
+      </div>
+
+    {% endif %}
+
+{% endblock %}

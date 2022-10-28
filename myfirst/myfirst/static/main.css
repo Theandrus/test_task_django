@@ -1,0 +1,28 @@
+*{
+    font-size: 20px;
+    font-family: 'Nova Flat';
+}
+
+.list{
+    background-color: #2b4b9f;
+    height: 30px;
+    width: 100%;
+
+}
+.categories{
+    color: #eeeeee;
+    margin-left: 15px;
+}
+
+.doctors{
+    color: white;
+    margin-left: 15px;
+}
+
+header{
+    text-align: center;
+    /*background-color: rgb(238, 238, 238);*/
+    margin-top: 1px;
+    margin-bottom: 5px;
+    height: 70px;
+}

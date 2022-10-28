@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Add doctor {% endblock %}
+
+{% block content %}
+
+<h2>Add a new doctor</h2>
+<form action="{% url 'adm:doctors_add'%}" method="post">
+    {% csrf_token %}
+    <div class="area">
+        <textarea name="doctor_name"  required="" placeholder="Doctor's name" cols="15" rows="1"></textarea>
+        <textarea name="slug" required="" placeholder="Slug" cols="15" rows="1"></textarea>
+        <textarea name="category" required="" placeholder="Category" cols="15" rows="1"></textarea>
+        <textarea name="description" required="" placeholder="Description" cols="50" rows="1"></textarea>
+        <textarea name="birth_date" required="" placeholder="Birth date" cols="15" rows="1"></textarea>
+        <textarea name="experience" required="" placeholder="Experience(year/s)" cols="10" rows="1"></textarea>
+        <textarea name="number_of_sort" required="" placeholder="Number of sort" cols="8" rows="1"></textarea>
+    </div>
+    <button type="submit" class="add_post">Add doctor</button>
+</form>
+
+{% endblock %}

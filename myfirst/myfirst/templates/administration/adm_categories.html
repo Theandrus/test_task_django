@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Categories {% endblock %}
+
+{% block content %}
+
+    {% if categories %}
+
+            {% for category in categories %}
+                <ul>
+                    <li>
+                        <a href="#">{{category.category_name}}</a>
+                        <a href = "{% url 'adm:delete_categories' category.slug  %}" class = "delete"   methods="POST"><input type=button name="delete" value='Delete'></a>
+                        <a href = "{% url 'adm:upd_page_categories' category.slug %}" class = "change"  methods="GET"><input type=button name="change" value='Change'></a>
+                    </li>
+                </ul>
+            {% endfor %}
+
+        {% else %}
+
+            <a>The categories were not find(</a>
+
+    {% endif %}
+<a href="{% url 'adm:add_categories' %}">
+    <button type="submit" class="add_button" >ADD</button>
+</a>
+
+{% endblock %}

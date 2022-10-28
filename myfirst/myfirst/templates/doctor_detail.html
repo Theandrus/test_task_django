@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %} {{doctor.doctor_name}} {% endblock %}
+
+{% block content %}
+
+  <h2>{{doctor.doctor_name}}</h2>
+  <p>{{doctor.categories}}</p>
+  <p>{{doctor.description}}</p>
+  <p>Experience: {{doctor.experience}} year/s</p>
+
+{% endblock %}

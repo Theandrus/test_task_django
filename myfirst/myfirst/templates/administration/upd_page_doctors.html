@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Change category{% endblock %}
+
+{% block content %}
+
+<h4>Change the category</h4>
+<form action="{% url 'adm:categories_update' category.slug%}" method="post">
+    {% csrf_token %}
+    <div class="area">
+        <p>Name: {{category.category_name}}</p><textarea name="Name" required="" placeholder="Category's name" cols="15" rows="1"></textarea>
+        <p>Slug: {{category.slug}}</p> <textarea name="Slug" required="" placeholder="Slug" cols="10" rows="1"></textarea>
+        <p>Number of sort: {{category.number_of_sort}}</p><textarea name="Number_of_sort" required="" placeholder="Number of sort" cols="15" rows="1"></textarea>
+    </div>
+    <button type="submit" class="add_post">Change category</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Main page {% endblock %}
+<link rel="stylesheet" href="/myfirst/static/main.css">
+
+{% block content %}
+<header class="info">
+
+  <h2>Welcome on the admin page</h2>
+  <a href="{% url 'adm:about_us' %}">About us</a>
+
+
+</header>
+
+<section class="list">
+  <a href="{% url 'adm:show_categories' %}" class="categories">Categories</a>
+  <a href="{% url 'adm:show_doctors' %}" class="doctors">Doctors</a>
+</section>
+
+{% endblock %}
